@@ -5,9 +5,6 @@ function timestamp() {
     elems["ts"] = JSON.stringify(new Date().getTime());
     document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
   }
-}
-function enableButton() {
-  document.getElementById('salesforcebutton').disabled = false;
-}
+
 
 setInterval(timestamp, 500);
