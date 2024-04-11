@@ -1,76 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
-
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
- function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
-</script>
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function timestamp() {
+      var response = document.getElementById("g-recaptcha-response");
+      if (response == null || response.value.trim() == "") {
+        var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+        elems["ts"] = JSON.stringify(new Date().getTime());
+        document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
+      }
+    }
+    setInterval(timestamp, 500); 
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
 <body>
-<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5I000002EsHt" method="POST">
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5I000002EsHt" method="POST">
+    <input type="hidden" name="captcha_settings" value='{"keyname":"Dastia","fallback":"true","orgId":"00D5I000002EsHt","ts":""}'>
+    <input type="hidden" name="oid" value="00D5I000002EsHt">
+    <input type="hidden" name="retURL" value="http://www.dastia.fi">
 
-<input type=hidden name='captcha_settings' value='{"keyname":"Dastia","fallback":"true","orgId":"00D5I000002EsHt","ts":""}'>
-<input type=hidden name="oid" value="00D5I000002EsHt">
-<input type=hidden name="retURL" value="http://www.dastia.fi">
+    <label for="first_name">First Name</label>
+    <input id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="mika.vonbehr@dastia.fi">                                         -->
-<!--  ----------------------------------------------------------------------  -->
+    <label for="last_name">Last Name</label>
+    <input id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
 
-<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+    <label for="email">Email</label>
+    <input id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
-<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+    <label for="company">Company</label>
+    <input id="company" maxlength="40" name="company" size="20" type="text" /><br>
 
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+    <label for="city">City</label>
+    <input id="city" maxlength="40" name="city" size="20" type="text" /><br>
 
-<label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+    <label for="country_code">Country</label>
+    <select id="country_code" name="country_code">
+      <option value="">--None--</option>
+      <option value="FI">FI</option>
+    </select><br>
 
-<label for="city">City</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+    <label for="state_code">State/Province</label>
+    <select id="state_code" name="state_code">
+      <option value="">--None--</option>
+      <option value="21">21</option>
+      <option value="09">09</option>
+      <option value="14">14</option>
+      <option value="10">10</option>
+      <option value="18">18</option>
+      <option value="00">00</option>
+      <option value="05">05</option>
+      <option value="16">16</option>
+      <option value="13">13</option>
+      <option value="08">08</option>
+      <option value="19">19</option>
+      <option value="06">06</option>
+      <option value="15">15</option>
+      <option value="12">12</option>
+      <option value="17">17</option>
+      <option value="11">11</option>
+      <option value="07">07</option>
+      <option value="04">04</option>
+      <option value="01">01</option>
+      <option value="02">02</option>
+    </select><br>
 
-<label for="country_code">Country</label><select  id="country_code" name="country_code"><option value="">--None--</option><option value="FI">FI</option>
-</select><br>
-
-<label for="state_code">State/Province</label><select  id="state_code" name="state_code"><option value="">--None--</option><option value="21">21</option>
-<option value="09">09</option>
-<option value="14">14</option>
-<option value="10">10</option>
-<option value="18">18</option>
-<option value="00">00</option>
-<option value="05">05</option>
-<option value="16">16</option>
-<option value="13">13</option>
-<option value="08">08</option>
-<option value="19">19</option>
-<option value="06">06</option>
-<option value="15">15</option>
-<option value="12">12</option>
-<option value="17">17</option>
-<option value="11">11</option>
-<option value="07">07</option>
-<option value="04">04</option>
-<option value="01">01</option>
-<option value="02">02</option>
-</select><br>
-
-<div class="g-recaptcha" data-sitekey="6LdNE6UpAAAAAB2drRGb-IopzfNaypkbfshb7BfG"></div><br>
-<input type="submit" name="submit">
-
-</form>
-
- </body>
+    <div class="g-recaptcha" data-sitekey="6LdNE6UpAAAAAB2drRGb-IopzfNaypkbfshb7BfG"></div><br>
+    <input type="submit" name="submit">
+  </form>
+</body>
 </html>
-
