@@ -6,4 +6,8 @@ function timestamp() {
     document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
   }
 }
+function enableButton() {
+  document.getElementById('salesforcebutton').disabled = false;
+}
+
 setInterval(timestamp, 500);
