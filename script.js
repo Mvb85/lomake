@@ -1,3 +1,13 @@
+let captchaChecked = false;
+
+
+function  beforeSubmit(event) {
+
+  if(captchaChecked) {
+} else{
+    alert{'please check'};
+    event.preventDefault();
+  }
 function timestamp() {
   var response = document.getElementById("g-recaptcha-response");
   if (response == null || response.value.trim() == "") {
@@ -8,3 +18,7 @@ function timestamp() {
 
 
 setInterval(timestamp, 500);
+function captchaSuccess() {
+
+  captchaChecked = true;
+}
